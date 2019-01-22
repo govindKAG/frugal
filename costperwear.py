@@ -47,14 +47,24 @@ def plot_cpw(price, years, usage, scale=None, label = None):
     print(years_array.shape)
     plt.plot(years_array, cpw, label=label)
 
+def compare( item1, item2):
+    price1, years1, usage1, label1 = item1
+    price2, years2, usage2, label2 = item2
+    scale = max(years1, years2)
+    scale1 = scale if  years1 < scale else None 
+    scale2 = scale if  years2 < scale else None 
+    plot_cpw(price1, years1, usage1, scale = scale1, label = label1)
+    plot_cpw(price2, years2, usage2, scale = scale2, label = label2)
+
 #plot_cpw(5000, 30, 365, label = 'bifl') 
 #plot_cpw(300, 2, 365, scale=30, label = 'normal') 
 
-plot_cpw(5000, 15, 365, label = 'bifl backpack') 
-plot_cpw(2000, 2, 365, scale=15, label = 'normal backpack') 
-
-plot_cpw(1600, 15, 365, label = 'nalgene') 
-plot_cpw(300, 2, 365, scale=15, label = 'normal') 
+#plot_cpw(5000, 15, 365, label = 'bifl backpack') 
+#plot_cpw(2000, 2, 365, scale=15, label = 'normal backpack') 
+#
+#plot_cpw(1600, 15, 365, label = 'nalgene') 
+#plot_cpw(300, 2, 365, scale=15, label = 'normal') 
+compare((5000, 15, 365, 'bifl backpack'), (2000, 2, 365,'normal backpack'))
 
 #scale_real_time(3000, 3, 15)
 #scale_real_time(3000, 3, 17)
