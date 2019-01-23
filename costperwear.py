@@ -45,19 +45,20 @@ def plot_cpw(price, years, usage, scale=None, label=None):
     #    price = price * (scale/years)
     #    years = scale
     years_array = np.arange(1, years + 1, 1)
-    print(years_array)
+    #print(years_array)
     usage = usage
     #print('dimension of price array ', price.shape)
     #print('\n dimension of years_array ', years_array.shape)
     cpw = price / (years_array * usage)
-    print(cpw.shape)
-    print(years_array.shape)
+    #print(cpw.shape)
+    #print(years_array.shape)
     plt.xlabel('years', fontsize=18)
     plt.ylabel('cost per use', fontsize=16)
     plt.plot(years_array, cpw, label=label)
 
 
 def compare(item1, item2):
+    plt.figure()
     price1, years1, usage1, label1 = item1
     price2, years2, usage2, label2 = item2
     scale = max(years1, years2)
@@ -76,6 +77,7 @@ def compare(item1, item2):
 #plot_cpw(1600, 15, 365, label = 'nalgene')
 #plot_cpw(300, 2, 365, scale=15, label = 'normal')
 compare((5000, 15, 365, 'bifl backpack'), (2000, 2, 365, 'normal backpack'))
+compare((5499, 20, 365, 'mechanical board'), (300, 2, 365, 'rubber dome'))
 
 #scale_real_time(3000, 3, 15)
 #scale_real_time(3000, 3, 17)
