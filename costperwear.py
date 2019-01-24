@@ -55,6 +55,7 @@ def plot_cpw(price, years, usage, scale=None, label=None):
     plt.xlabel('years', fontsize=18)
     plt.ylabel('cost per use', fontsize=16)
     plt.plot(years_array, cpw, label=label)
+    plt.legend()
 
 
 def compare(item1, item2):
@@ -84,5 +85,4 @@ compare((5499, 20, 365, 'mechanical board'), (300, 2, 365, 'rubber dome'))
 #scale_real_time(43000, 3, 17)
 #print(scaled_cpw(200, 0.5, 20, scale = 15))
 
-plt.legend()
 plt.show()
