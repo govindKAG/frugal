@@ -21,6 +21,8 @@ def scaled_cpw(price, years, usage, scale=None):
 
 def scale_real_time(ogprice, years, scale):
     print(ogprice, years, scale, sep='===')
+    if years == scale:
+        return ogprice
     remaining_years = scale % years
     sections = scale // years
     running_price = ogprice
@@ -68,6 +70,10 @@ def compare(item1, item2):
     plot_cpw(price1, years1, usage1, scale=scale1, label=label1)
     plot_cpw(price2, years2, usage2, scale=scale2, label=label2)
 
+#figure how to scale from within this function
+def compare_all(items, scale=None):
+    for price, years, usage, label in items:
+        plot_cpw(price, years, usage, label = label, scale = scale)
 #plot_cpw(5000, 30, 365, label = 'bifl')
 #plot_cpw(300, 2, 365, scale=30, label = 'normal')
 
