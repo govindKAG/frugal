@@ -26,3 +26,5 @@ class Item(object):
         lasted {self.years}
         use per year {self.usage}
         cost {self.price}"""
+    def as_tuple(self):
+        return (self.price, self.years, self.usage, self.label)

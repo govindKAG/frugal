@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from item import Item
 
 #years  = np.arange(1., 20., 0.5)
 #cpw = lambda price, year, usage : price/(year * usage)
@@ -86,6 +87,11 @@ def compare_all(items, scale=None):
 compare((5000, 15, 365, 'bifl backpack'), (2000, 2, 365, 'normal backpack'))
 compare((5499, 20, 365, 'mechanical board'), (300, 2, 365, 'rubber dome'))
 
+bifl_backpack = Item().called('bifl backpack item').whichcosts(5000).whichlasts(15).used(365)
+print(bifl_backpack)
+print(bifl_backpack.as_tuple())
+normal_backpack = Item().called('normal backpack item').whichcosts(2000).whichlasts(2).used(365)
+compare(bifl_backpack.as_tuple(), normal_backpack.as_tuple())
 #scale_real_time(3000, 3, 15)
 #scale_real_time(3000, 3, 17)
 #scale_real_time(43000, 3, 17)
