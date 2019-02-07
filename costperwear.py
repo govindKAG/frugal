@@ -62,6 +62,11 @@ def plot_cpw(price, years, usage, scale=None, label=None):
 
 
 def compare(item1, item2):
+    ''' 
+    plot two cost per use curve scaled over the life time of the product with the longer overall life time 
+    each item is a tuple of the form (price, years it lasts, amount of expected uses per year, name )
+    years must be an integer
+    '''
     plt.figure()
     price1, years1, usage1, label1 = item1
     price2, years2, usage2, label2 = item2
@@ -73,6 +78,10 @@ def compare(item1, item2):
 
 #figure how to scale from within this function
 def compare_all(items, scale=None):
+    ''' 
+    plot cost per use curve for a list of items scaled over the lifetime 
+    of the longest lasting product
+    '''
     for price, years, usage, label in items:
         plot_cpw(price, years, usage, label = label, scale = scale)
 #plot_cpw(5000, 30, 365, label = 'bifl')
